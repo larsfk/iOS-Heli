@@ -46,35 +46,35 @@ class GameScene: SKScene {
         let actualSpeed = CGFloat(2.0)
         
         // Random Y axis
-        //let acutalY_1 = random(min: player.size.height/2, max: size.height - player.size.height/2)
-        //let acutalY_2 = random(min: player.size.height/2, max: size.height - player.size.height/2)
+        let acutalY_1 = random(min: player.size.height/2, max: size.height - player.size.height/2)
+        let acutalY_2 = random(min: player.size.height/2, max: size.height - player.size.height/2)
         
-        let acutalY_1 = CGFloat(size.height/2)
+        //let acutalY_1 = CGFloat(size.height/2)
         //let acutalY_2 = CGFloat(size.height/2)
         
         // Create action
         let actionMoveRight = SKAction.moveTo(CGPoint(x: size.width - player.size.width/2, y: acutalY_1), duration: NSTimeInterval(actualSpeed))
         
-        //let actionMoveLeft = SKAction.moveTo(CGPoint(x: 0, y: acutalY_2), duration: NSTimeInterval(actualSpeed))
+        let actionMoveLeft = SKAction.moveTo(CGPoint(x: 0, y: acutalY_2), duration: NSTimeInterval(actualSpeed))
         
-        player.runAction(SKAction.sequence([actionMoveRight,rotation(from: player.position, to: CGPoint(x: 0, y: acutalY_1))]))
+        player.runAction(SKAction.sequence([actionMoveRight,rotation(from: player.position, to: CGPoint(x: 0, y: acutalY_1)),actionMoveLeft,rotation(from: player.position, to: CGPoint(x: size.width, y: acutalY_2))]))
         
     }
     
     func rotation(from pointA: CGPoint, to pointB: CGPoint) -> SKAction{
-        println("B: \(pointB)")
-        println("A: \(pointA)")
+        //println("B: \(pointB)")
+        //println("A: \(pointA)")
         
         var angle = atan2(pointB.y - pointA.y, pointB.x - pointA.x)
         
-        println("Angle: \(angle)")
-        println("zRot: \(player.zRotation)")
+        //println("Angle: \(angle)")
+        //println("zRot: \(player.zRotation)")
         
-        if(angle <= 0.0){
-            angle = player.zRotation + pi
-        }
+        //if(angle <= 0.0){
+        //    angle = player.zRotation + pi
+        //}
         
-        return SKAction.rotateToAngle(angle + pi/2, duration: 0)
+        return SKAction.rotateToAngle(angle + 3*pi/2, duration: 0)
         
         
     }
