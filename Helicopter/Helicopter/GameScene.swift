@@ -14,7 +14,7 @@ class GameScene: SKScene {
     let player = SKSpriteNode(imageNamed: "Cobra")
     
     let pi = CGFloat(M_PI)
-
+    let label = SKLabelNode(fontNamed: "Chalkduster")
     
     override func didMoveToView(view: SKView) {
         
@@ -28,8 +28,22 @@ class GameScene: SKScene {
         addChild(player)
         
         backgroundColor = SKColor.whiteColor()
+
+        label.text = "x: , y: "
+        label.fontSize = 20
+        label.fontColor = SKColor.blackColor()
+        label.position = CGPoint(x: size.width / 2 , y: size.height / 2)
+        addChild(label)
+
         
-        runAction(SKAction.repeatActionForever(SKAction.sequence([SKAction.runBlock(moveHeli), SKAction.waitForDuration(4.0)])))
+        
+        //Physics
+        physicsWorld.gravity = CGVectorMake(0, 0)
+        player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size)
+        player.physicsBody?.dynamic = true
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+        
+        //runAction(SKAction.repeatActionForever(SKAction.sequence([SKAction.runBlock(moveHeli), SKAction.waitForDuration(4.0)])))
     }
     
     func random() -> CGFloat {
@@ -40,26 +54,7 @@ class GameScene: SKScene {
         return random() * (max - min) + min
     }
     
-    func moveHeli() {
-        
-        // Determine speed
-        let actualSpeed = CGFloat(2.0)
-        
-        // Random Y axis
-        let acutalY_1 = random(min: player.size.height/2, max: size.height - player.size.height/2)
-        let acutalY_2 = random(min: player.size.height/2, max: size.height - player.size.height/2)
-        
-        // Create action
-        let rightPoint = CGPoint(x: size.width - player.size.width / 2, y: acutalY_1)
-        let actionMoveRight = SKAction.moveTo(rightPoint, duration: NSTimeInterval(actualSpeed))
-        
-        let leftPoint = CGPoint(x: 0, y: acutalY_2)
-        let actionMoveLeft = SKAction.moveTo(leftPoint, duration: NSTimeInterval(actualSpeed))
-        
-        player.runAction(SKAction.sequence([rotation(from: player.position, to: rightPoint), actionMoveRight, rotation(from: rightPoint, to: leftPoint), actionMoveLeft]))
-        
-    }
-    
+    //Rotation på helikoptret
     func rotation(from pointA: CGPoint, to pointB: CGPoint) -> SKAction{
         
         var angle = atan2(pointB.y - pointA.y, pointB.x - pointA.x)
@@ -68,6 +63,60 @@ class GameScene: SKScene {
         
         
     }
+    
+    func updateText(){
+        // Add Text
+        var x = player.position.x
+        var y = player.position.y
+        label.text = NSString(format: "x: %.1f , y: %.1f", x,y )
+
+    }
+    
+    // Touch funksjonalitet
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        
+        // Touch
+        let touch = touches.anyObject() as UITouch
+        let touchLocation = touch.locationInNode(self) as CGPoint
+        
+        let actualSpeed = CGFloat(2.0)
+        
+        let actionMoveToPoint = SKAction.moveTo(touchLocation, duration: NSTimeInterval(actualSpeed))
+        
+        updateText()
+
+        player.runAction(SKAction.sequence([rotation(from: player.position, to: touchLocation), actionMoveToPoint]))
+        
+    }
+    
+    
+//    func moveHeli() {
+//        
+//        // Determine speed
+//        let actualSpeed = CGFloat(2.0)
+//        
+//        // Random Y axis
+//        //let acutalY_1 = random(min: player.size.height/2, max: size.height - player.size.height/2)
+//        //let acutalY_2 = random(min: player.size.height/2, max: size.height - player.size.height/2)
+//        
+//        
+//        // Create action
+//        //let rightPoint = CGPoint(x: size.width - player.size.width / 2, y: acutalY_1)
+//        //let actionMoveRight = SKAction.moveTo(rightPoint, duration: NSTimeInterval(actualSpeed))
+//        
+//        //let leftPoint = CGPoint(x: 0, y: acutalY_2)
+//        //let actionMoveLeft = SKAction.moveTo(leftPoint, duration: NSTimeInterval(actualSpeed))
+//        
+//        let moveToPoint = CGPoint(x: point.x, y: point.y)
+//        let actionMoveToPoint = SKAction.moveTo(point, duration: NSTimeInterval(actualSpeed))
+//        
+//        player.runAction(SKAction.sequence([rotation(from: player.position, to: moveToPoint), actionMoveToPoint]))
+//        
+//    }
+    
+
+    
+
     
     
 }
