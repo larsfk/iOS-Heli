@@ -23,16 +23,16 @@ class GameScene: SKScene {
         
         player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
         
-        player.runAction(SKAction.rotateToAngle(CGFloat(-pi/2), duration: 0.0))
+        //player.runAction(SKAction.rotateToAngle(CGFloat(-pi/2), duration: 0.0))
         
         addChild(player)
         
         backgroundColor = SKColor.whiteColor()
 
-        label.text = "x: , y: "
-        label.fontSize = 20
+        label.text = String(format: "x: %.1f , y: %.1f", Double(player.position.x),Double(player.position.y) )
+        label.fontSize = 10
         label.fontColor = SKColor.blackColor()
-        label.position = CGPoint(x: size.width / 2 , y: size.height / 2)
+        label.position = CGPoint(x: size.width / 10 , y: size.height / 1.05)
         addChild(label)
 
         
@@ -59,7 +59,7 @@ class GameScene: SKScene {
         
         var angle = atan2(pointB.y - pointA.y, pointB.x - pointA.x)
         
-        return SKAction.rotateToAngle(angle + 3*pi/2, duration: 0)
+        return SKAction.rotateToAngle(angle + 2*pi, duration: 0)
         
         
     }
@@ -68,7 +68,7 @@ class GameScene: SKScene {
         // Add Text
         var x = player.position.x
         var y = player.position.y
-        label.text = NSString(format: "x: %.1f , y: %.1f", x,y )
+        label.text = String(format: "x: %.1f , y: %.1f", Double(x),Double(y))
 
     }
     
@@ -83,9 +83,11 @@ class GameScene: SKScene {
         
         let actionMoveToPoint = SKAction.moveTo(touchLocation, duration: NSTimeInterval(actualSpeed))
         
+        let sizeChange = SKAction.scaleTo(random(min: 0.1, max: 0.3), duration: 1)
+        
         updateText()
 
-        player.runAction(SKAction.sequence([rotation(from: player.position, to: touchLocation), actionMoveToPoint]))
+        player.runAction(SKAction.sequence([sizeChange,rotation(from: player.position, to: touchLocation), actionMoveToPoint]))
         
     }
     

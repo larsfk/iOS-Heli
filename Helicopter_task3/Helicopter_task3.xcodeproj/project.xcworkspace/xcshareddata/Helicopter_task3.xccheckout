@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>98EB5CDB-3347-4F95-A8F2-49179060C811</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Helicopter_task3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>637EAD2DDA4CA4B7BB0721309E2CEB1C555A64FE</key>
+		<string>https://github.com/larsfk/iOS-Heli.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Helicopter_task3/Helicopter_task3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>637EAD2DDA4CA4B7BB0721309E2CEB1C555A64FE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/larsfk/iOS-Heli.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>637EAD2DDA4CA4B7BB0721309E2CEB1C555A64FE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>637EAD2DDA4CA4B7BB0721309E2CEB1C555A64FE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Heli</string>
+		</dict>
+	</array>
+</dict>
+</plist>
