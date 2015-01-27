@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02076EDA1A76872800FCE94F /* Cobra.png in Resources */ = {isa = PBXBuildFile; fileRef = 02076ED91A76872800FCE94F /* Cobra.png */; };
 		0272593B1A70019500985479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272593A1A70019500985479 /* AppDelegate.swift */; };
 		0272593F1A70019500985479 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272593E1A70019500985479 /* GameScene.swift */; };
 		027259411A70019500985479 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027259401A70019500985479 /* GameViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02076ED91A76872800FCE94F /* Cobra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cobra.png; sourceTree = "<group>"; };
 		027259351A70019500985479 /* Helicopter_task3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helicopter_task3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		027259391A70019500985479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0272593A1A70019500985479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				027259421A70019500985479 /* Main.storyboard */,
 				027259451A70019500985479 /* Images.xcassets */,
 				027259471A70019500985479 /* LaunchScreen.xib */,
+				02076ED91A76872800FCE94F /* Cobra.png */,
 				027259381A70019500985479 /* Supporting Files */,
 			);
 			path = Helicopter_task3;
@@ -204,6 +207,7 @@
 				027259491A70019500985479 /* LaunchScreen.xib in Resources */,
 				027259611A700EB600985479 /* heliSheet.atlasc in Resources */,
 				027259461A70019500985479 /* Images.xcassets in Resources */,
+				02076EDA1A76872800FCE94F /* Cobra.png in Resources */,
 				027259441A70019500985479 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +421,7 @@
 				0272595A1A70019500985479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0272595B1A70019500985479 /* Build configuration list for PBXNativeTarget "Helicopter_task3Tests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				0272595D1A70019500985479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
